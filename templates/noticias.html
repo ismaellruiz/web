@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+<style type="text/css">
+  #myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+</style>
+   {% block title %}Conalep Tijuana I{%endblock%}
+      {%block navbar%}
+         <li><a href='{% url "home_view" %}' class="page-scroll">Inicio</a></li>
+
+{% endblock %}
+
+   {% block noticias %}
+   {%endblock%}
+   {%block texto%}Noticias{%endblock%}
+   {%block about%}
+
+
+<div id="about">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-xs col-md">
+
+          <h2><span>Noticias</span></h2>
+          <hr>
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Busca una noticia.." title="Type in a name">
+ 
+<table id="myTable">
+  <tr class="header">
+  {% for obj in noticia %}
+
+           
+ <tr ><td><p align="left"><a  id="a1" href="/noticia/{{ obj.id }}/">{{ obj.titulo }} autor {{obj.usuario}} categoria {{obj.seccion}} </td></tr>
+
+
+{% endfor %}
+    </tr>
+    {% if noticia.has_other_pages %}
+  <ul class="pagination">
+    {% if noticia.has_previous %}
+      <li><a href="?page={{ noticia.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in noticia.paginator.page_range %}
+      {% if noticia.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if noticia.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</table>
+
+
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+  
+
+</div>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block service %}
+
+
+{% endblock %}
+
+
+<!-- Gallery Section -->
+
+
+{% block pag %}
+
+{% endblock %}
+
+{% block contact %}
+{% endblock %}
+
+
+
+
+</script>

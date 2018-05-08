@@ -1,0 +1,13 @@
+Noticia.objects.filter(seccion=1)[:10][::-1]
+
+HTML code: 	#217065
+RGB code: 	R: 33 G: 112 B: 101
+HSV: 	171.65° 70.54% 43.92%
+
+
+HTML code: 	#007D68
+RGB code: 	R: 0 G: 125 B: 104
+HSV: 	169.92° 100% 49.02%
+
+--
+fotos

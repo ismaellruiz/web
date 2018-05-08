@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<style type="text/css">
+  #myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+#mycolumn {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+#myrow:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+img.wrap {float: right}
+}
+
+</style>
+        {%block navbar%}
+         <li><a href='{% url "home_view" %}' class="page-scroll">Inicio</a></li>
+        <li><a href='{% url "Imprimir_noticias" %}' class="page-scroll">Noticias</a></li>
+
+{% endblock %}
+   {% block title %}Conalep Tijuana I{%endblock%}
+
+
+   {% block noticias %}
+   {%endblock%}
+   {%block about%}
+   
+
+<div id="about">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-xs col-md">
+
+          <h2><span>{{object.titulo}}</span></h2>
+          <hr>
+          <h5>Autor: {{object.usuario}}</h5>
+       <p> {{object.datos}}</p>
+     
+          {% if object.imagen  %}
+  <div align="center">  <a    href="{{object.imagen.url}}" >   <img src="{{object.imagen.url}}" width="700" height="500" class="img-responsive"></p></a></div>
+{% endif %}
+
+</div>
+</div>
+
+{% endblock %}
+
+{% block service %}
+
+
+{% endblock %}
+
+
+<!-- Gallery Section -->
+
+
+{% block pag %}
+
+{% endblock %}
+
+{% block contact %}
+{% endblock %}
+
+
+
+
+</script>

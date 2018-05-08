@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+   {% block title %}Conalep Tijuana I{%endblock%}
+
+
+   {% block noticias %}
+<style>
+#div123 {
+
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+</style>
+
+
+
+<div id="portfolio" id="div123">
+  <div class="container">
+    <div class="section-title text-center center">
+          <br>
+          <br>
+          <br>
+      <h2>Galeria de noticias</h2>
+      <hr>
+   
+      <p><a href='{% url "Imprimir_noticias" %}' class="page-scroll">Lista de noticias</a></p>
+      
+    </div>
+    <br>
+    <div class="categories">
+      <ul class="cat">
+        <li>
+          <ol class="type">
+            <li><a href="#" data-filter="*" class="active">Todas</a></li>
+            <li><a href="#" data-filter=".Alumnos">Alumnos</a></li>
+            <li><a href="#" data-filter=".Maestros">Maestros</a></li>
+            <li><a href="#" data-filter=".Capacitacion">Capacitacion</a></li>
+          </ol>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+      	{% for obj in rw1 %}
+        <div class="col-sm-6 col-md-4 Alumnos">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a    {% if obj.imagen  %} href="{{obj.imagen.url}}" {% endif %} title="{{obj.titulo}}" data-lightbox-gallery="gallery1">
+
+              <div class="hover-text">
+                <h4>{{ obj.titulo }}</h4>
+              </div>
+                        <img {% if obj.imagen  %} src="{{obj.imagen.url}}" {% endif %} class="img-responsive" alt="{{obj.titulo}}" > </a> </div> 
+          </div>
+        </div>
+       {% endfor %}
+
+	{% for obj2 in rw2 %}
+         <div class="col-sm-6 col-md-4 Maestros">
+          <div class="portfolio-item">
+           <div class="hover-bg"> <a    {% if obj2.imagen  %} href="{{obj2.imagen.url}}" {% endif %} title="{{obj2.titulo}}" data-lightbox-gallery="gallery1">
+
+              <div class="hover-text">
+                <h4>{{ obj2.titulo }}</h4>
+              </div>
+                        <img {% if obj2.imagen  %} src="{{obj2.imagen.url}}" {% endif %} class="img-responsive" alt="{{obj2.titulo}}" > </a> </div> 
+          </div>
+        </div>
+        {% endfor %}
+
+  {% for obj3 in rw3 %}
+
+        <div class="col-sm-6 col-md-4 Capacitacion">
+        <div class="portfolio-item">
+               <div class="portfolio-item">
+
+            <div class="hover-bg"> <a    {% if obj3.imagen  %} href="{{obj3.imagen.url}}" {% endif %} title="{{obj3.titulo}}" data-lightbox-gallery="gallery1">
+
+              <div class="hover-text">
+                <h4>{{ obj3.titulo }}</h4>
+              </div>
+                 <img {% if obj3.imagen  %} src="{{obj3.imagen.url}}" {% endif %} class="img-responsive" alt="{{obj3.titulo}}" > </a> </div> 
+          </div>
+          </div>
+    
+
+
+    
+      </div>
+    </div>
+  </div>
+</div>
+ {% endfor %}
+
+<br>
+
+   {%endblock%}
